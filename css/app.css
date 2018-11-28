@@ -56,4 +56,13 @@ body {
 	margin-bottom: 0;
 }
 
+.rating-restart {
+	width: 96%;
+	display: flex;
+	justify-content: space-around;
+	margin: 0 0 1rem;
+	font: 700 1rem/normal 'Cabin', sans-serif;
+	color: #363732;
+}
+
 /* media queries */
