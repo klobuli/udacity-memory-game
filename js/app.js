@@ -14,3 +14,6 @@ const otterOne = '<i class="fas fa-otter"></i>';
 const otterTwo = '<i class="fas fa-otter"></i>';
 const spiderOne = '<i class="fas fa-spider"></i>';
 const spiderTwo = '<i class="fas fa-spider"></i>';
+
+let cardsArray = [dogOne, dogTwo, catOne, catTwo, birdOne, birdTwo, hippoOne, hippoTwo, frogOne, frogTwo, horseOne, horseTwo, otterOne, otterTwo, spiderOne, spiderTwo];
+let shuffledCardsArray = [];
