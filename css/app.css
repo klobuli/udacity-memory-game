@@ -17,8 +17,10 @@ body {
 }
 
 .page-heading {
-	margin: 0;
+	margin: 1rem 0;
 	text-align: center;
+	font: 400 2rem/normal 'Fredoka One', cursive;
+	color: #363732;
 }
 
 #card-grid {
