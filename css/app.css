@@ -1,0 +1,34 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+}
+
+/* mobile first */
+
+.page-head {
+	width: 100%;
+}
+
+.page-heading {
+	margin: 0;
+	text-align: center;
+}
+
+#card-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.single-list-item {
+
+}
+
+/* media queries */
