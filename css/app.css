@@ -1,5 +1,6 @@
 html {
 	box-sizing: border-box;
+	font-size: calc(100% + .1vw);
 }
 
 *, *::before, *::after {
@@ -24,13 +25,35 @@ body {
 }
 
 #card-grid {
+	width: 96%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	padding: .6rem;
+	list-style-type: none;
+	border-radius: .7rem;
+	background-color: #dce1e9;
 }
 
-.single-list-item {
+.list-item {
+	width: 23%;
+	height: 20.6vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: .3rem 0;
+	border-radius: .5rem;
+	background-color: #66c3ff;
+}
 
+.list-item:nth-child(-n+4) {
+	margin-top: 0;
+}
+
+.list-item:nth-last-child(-n+4) {
+	margin-bottom: 0;
 }
 
 /* media queries */
