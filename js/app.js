@@ -34,3 +34,18 @@ function shuffle(arrayToShuffle) {
 	}
 	return shuffledCardsArray;
 }
+
+/* function that invokes the shuffle function and appends list items to the existing ul element */
+
+function createGrid() {
+	const random = shuffle(cardsArray);
+	const unorderedList = document.querySelector('#card-grid');
+	for(let i = 0; i < random.length; i++) {
+	const listItem = document.createElement('li');
+	listItem.classList.add('list-item');
+	listItem.innerHTML = random[i];
+	unorderedList.appendChild(listItem);
+	}
+}
+
+createGrid();
