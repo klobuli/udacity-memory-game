@@ -42,10 +42,14 @@ function createGrid() {
 	const unorderedList = document.querySelector('#card-grid');
 	for(let i = 0; i < random.length; i++) {
 	const listItem = document.createElement('li');
-	listItem.classList.add('list-item');
+	listItem.classList.add('card');
 	listItem.innerHTML = random[i];
 	unorderedList.appendChild(listItem);
 	}
 }
 
 createGrid();
+
+function turnOver() {
+	const card = document.querySelector('.card')
+}

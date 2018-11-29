@@ -37,7 +37,7 @@ body {
 	background-color: #e1e5ed;
 }
 
-.list-item {
+.card {
 	width: 23%;
 	height: 20.6vw;
 	display: flex;
@@ -48,11 +48,11 @@ body {
 	background: linear-gradient(to bottom, #3d91c7, #3fa6cc);
 }
 
-.list-item:nth-child(-n+4) {
+.card:nth-child(-n+4) {
 	margin-top: 0;
 }
 
-.list-item:nth-last-child(-n+4) {
+.card:nth-last-child(-n+4) {
 	margin-bottom: 0;
 }
 
@@ -103,7 +103,7 @@ body {
 		padding: 1.1rem;
 	}
 
-	.list-item {
+	.card {
 		height: 20vw;
 		max-height: 160px;
 	}
@@ -125,7 +125,7 @@ body {
 		max-width: 760px;
 	}
 
-	.list-item {
+	.card {
 		height: 17.5vw;
 		max-height: 165px;
 	}
@@ -147,7 +147,7 @@ body {
 		padding: 1.3rem;
 	}
 
-	.list-item {
+	.card {
 		height: 15vw;
 	}
 
