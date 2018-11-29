@@ -45,7 +45,7 @@ body {
 	align-items: center;
 	margin: .3rem 0;
 	border-radius: .5rem;
-	background-color: #66c3ff;
+	background: linear-gradient(to bottom, #3d91c7, #3fa6cc);
 }
 
 .list-item:nth-child(-n+4) {
@@ -63,6 +63,11 @@ body {
 	margin: 0 0 1rem;
 	font: 700 1rem/normal 'Cabin', sans-serif;
 	color: #363732;
+}
+
+.fa-card {
+	font-size: 2.2rem;
+	color: #fff;
 }
 
 /* media queries */
