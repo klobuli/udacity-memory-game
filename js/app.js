@@ -17,3 +17,20 @@ const spiderTwo = '<i class="fas fa-spider"></i>';
 
 let cardsArray = [dogOne, dogTwo, catOne, catTwo, birdOne, birdTwo, hippoOne, hippoTwo, frogOne, frogTwo, horseOne, horseTwo, otterOne, otterTwo, spiderOne, spiderTwo];
 let shuffledCardsArray = [];
+
+/* shuffle function */
+
+function shuffle(arrayToShuffle) {
+	let randomNumbersUsed = [];
+	for (let i = 0; i < arrayToShuffle.length; i++) {
+	const randomNumber = Math.floor(Math.random()*arrayToShuffle.length);
+	if (!randomNumbersUsed.includes(randomNumber)) {
+	shuffledCardsArray.push(arrayToShuffle[randomNumber]);
+	randomNumbersUsed.push(randomNumber);
+	}
+	else if(randomNumbersUsed.includes(randomNumber)) {
+	i--;
+	}
+	}
+	return shuffledCardsArray;
+}
