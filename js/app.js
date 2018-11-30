@@ -18,7 +18,7 @@ const spiderTwo = '<i class="fas fa-spider fa-card"></i>';
 let cardsArray = [dogOne, dogTwo, catOne, catTwo, birdOne, birdTwo, hippoOne, hippoTwo, frogOne, frogTwo, horseOne, horseTwo, otterOne, otterTwo, spiderOne, spiderTwo];
 let shuffledCardsArray = [];
 
-/* shuffle function */
+// shuffle function
 
 function shuffle(arrayToShuffle) {
 	let randomNumbersUsed = [];
@@ -35,7 +35,7 @@ function shuffle(arrayToShuffle) {
 	return shuffledCardsArray;
 }
 
-/* function that invokes the shuffle function and appends list items to the existing ul element */
+// function that invokes the shuffle function and appends list items to the existing ul element
 
 function createGrid() {
 	const random = shuffle(cardsArray);
@@ -50,6 +50,11 @@ function createGrid() {
 
 createGrid();
 
-function turnOver() {
-	const card = document.querySelector('.card')
+// function to reveal cards
+
+const card = document.querySelectorAll('.card');
+for(let i = 0; i < card.length; i++) {
+	card[i].addEventListener('click', function(evt) {
+		card[i].classList.toggle('open');
+	});
 }
