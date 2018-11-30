@@ -23,14 +23,14 @@ let shuffledCardsArray = [];
 function shuffle(arrayToShuffle) {
 	let randomNumbersUsed = [];
 	for (let i = 0; i < arrayToShuffle.length; i++) {
-	const randomNumber = Math.floor(Math.random()*arrayToShuffle.length);
-	if (!randomNumbersUsed.includes(randomNumber)) {
-	shuffledCardsArray.push(arrayToShuffle[randomNumber]);
-	randomNumbersUsed.push(randomNumber);
-	}
-	else if(randomNumbersUsed.includes(randomNumber)) {
-	i--;
-	}
+		const randomNumber = Math.floor(Math.random()*arrayToShuffle.length);
+		if (!randomNumbersUsed.includes(randomNumber)) {
+			shuffledCardsArray.push(arrayToShuffle[randomNumber]);
+			randomNumbersUsed.push(randomNumber);
+		}
+		else if(randomNumbersUsed.includes(randomNumber)) {
+			i--;
+		}
 	}
 	return shuffledCardsArray;
 }
@@ -41,10 +41,10 @@ function createGrid() {
 	const random = shuffle(cardsArray);
 	const unorderedList = document.querySelector('#card-grid');
 	for(let i = 0; i < random.length; i++) {
-	const listItem = document.createElement('li');
-	listItem.classList.add('card');
-	listItem.innerHTML = random[i];
-	unorderedList.appendChild(listItem);
+		const listItem = document.createElement('li');
+		listItem.classList.add('card');
+		listItem.innerHTML = random[i];
+		unorderedList.appendChild(listItem);
 	}
 }
 
@@ -52,9 +52,12 @@ createGrid();
 
 // function to reveal cards
 
+let revealCount = 0;
+
 const card = document.querySelectorAll('.card');
 for(let i = 0; i < card.length; i++) {
 	card[i].addEventListener('click', function(evt) {
 		card[i].classList.toggle('open');
+		revealCount++;
 	});
 }
