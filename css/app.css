@@ -46,6 +46,28 @@ body {
 	margin: .3rem 0;
 	border-radius: .5rem;
 	background: linear-gradient(to bottom, #3d91c7, #3fa6cc);
+	cursor: pointer;
+	transition: .5s ease;
+}
+
+.open {
+	transition: 1s ease;
+	transform: rotateY(180deg);
+}
+
+.fa-card {
+	font-size: 1.9rem;
+	color: #fff;
+	opacity: 0;
+	transition: opacity 0s ease;
+	transition-delay: 0s;
+}
+
+.open .fa-card {
+	opacity: 1;
+	transform: rotateY(-180deg);
+	transition: opacity .5s ease;
+	transition-delay: .5s;
 }
 
 .card:nth-child(-n+4) {
@@ -63,11 +85,6 @@ body {
 	margin: 0 0 1rem;
 	font: 700 1rem/normal 'Cabin', sans-serif;
 	color: #363732;
-}
-
-.fa-card {
-	font-size: 1.9rem;
-	color: #fff;
 }
 
 /* media queries */
