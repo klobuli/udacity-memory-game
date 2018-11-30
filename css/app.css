@@ -66,7 +66,7 @@ body {
 }
 
 .fa-card {
-	font-size: 2.2rem;
+	font-size: 1.9rem;
 	color: #fff;
 }
 
@@ -114,6 +114,10 @@ body {
 
 	.restart {
 		margin-right: 9%;
+	}
+
+	.fa-card {
+		font-size: 2.2rem;
 	}
 
 }
