@@ -50,14 +50,42 @@ function createGrid() {
 
 createGrid();
 
-// function to reveal cards
+// function to reveal and check cards
 
 let revealCount = 0;
+let revealedAnimals = [];
+let totalMatches = 0;
 
 const card = document.querySelectorAll('.card');
 for(let i = 0; i < card.length; i++) {
 	card[i].addEventListener('click', function(evt) {
-		card[i].classList.toggle('open');
+		card[i].classList.add('open');
 		revealCount++;
+		revealedAnimals.push(card[i]);
+		if(revealCount === 2) {
+			if(revealedAnimals[0].children[0].classList[1] === revealedAnimals[1].children[0].classList[1]) {
+				const match = document.querySelectorAll('.open');
+				for(let i = 0; i < match.length; i++) {
+					setTimeout(function() {
+						match[i].classList.remove('card');
+						match[i].classList.remove('open');
+						match[i].classList.add('matched');
+					}, 1000);
+				}
+				totalMatches++;
+				revealCount = 0;
+				revealedAnimals = [];
+			}
+			else if(revealedAnimals[0].children[0].classList[1] !== revealedAnimals[1].children[0].classList[1]) {
+				const noMatch = document.querySelectorAll('.open');
+				for(let i = 0; i < noMatch.length; i++) {
+					setTimeout(function() {
+						noMatch[i].classList.remove('open');
+					}, 1000);
+				}
+				revealCount = 0;
+				revealedAnimals = [];
+			}
+		}
 	});
 }
