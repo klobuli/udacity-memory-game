@@ -64,7 +64,7 @@ body {
 .fa-card {
 	font-size: 1.9rem;
 	color: #fff;
-	opacity: 0;
+	opacity: 0.2;
 	transition: opacity 0s ease;
 	transition-delay: 0s;
 }
