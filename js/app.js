@@ -70,7 +70,7 @@ function unreveal(evt) {
 function play() {
 	const card = document.querySelectorAll('.card');
 	for(let i = 0; i < card.length; i++) {
-		card[i].addEventListener('click', unreveal);
+		card[i].addEventListener('click', unreveal, { once: true });
 	}
 }
 
@@ -80,7 +80,6 @@ function check() {
 	const checkOpenedCards = document.querySelectorAll('.open');
 	if(checkOpenedCards[0].innerHTML === checkOpenedCards[1].innerHTML) {
 		for(let i = 0; i < checkOpenedCards.length; i++) {
-				checkOpenedCards[i].removeEventListener('click', unreveal);
 			setTimeout(function() {
 				checkOpenedCards[i].classList.remove('card', 'open');
 				checkOpenedCards[i].classList.add('matched');
@@ -91,6 +90,7 @@ function check() {
 	else if(checkOpenedCards[0].innerHTML !== checkOpenedCards[1].innerHTML) {
 		for(let i = 0; i < checkOpenedCards.length; i++) {
 			setTimeout(function() {
+			checkOpenedCards[i].addEventListener('click', unreveal, { once: true });
 			checkOpenedCards[i].classList.remove('open');
 			}, 1000);
 		}
