@@ -63,9 +63,9 @@ body {
 }
 
 .fa-card {
-	font-size: 1.9rem;
+	font-size: 1.8rem;
 	color: #fff;
-	opacity: 0.2;
+	opacity: 0.1;
 	transition: opacity 0s ease;
 	transition-delay: 0s;
 }
@@ -103,6 +103,10 @@ body {
 
 @media screen and (min-width: 40.625em) {
 
+	#card-grid {
+		padding: .9rem;
+	}
+
 	.page-heading {
 		font: 400 2.5rem/normal 'Fredoka One', cursive;
 	}
@@ -117,10 +121,6 @@ body {
 
 	.restart {
 		margin-right: 7%;
-	}
-
-	#card-grid {
-		padding: .9rem;
 	}
 
 }
