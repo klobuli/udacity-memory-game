@@ -50,11 +50,12 @@ function createGrid() {
 
 createGrid();
 
-// function to reveal and check cards
+// variables to track status of the game
 
 let revealCount = 0;
-let revealedAnimals = [];
 let totalMatches = 0;
+
+// event listener function
 
 function unreveal(evt) {
 	evt.currentTarget.classList.add('open');
@@ -64,6 +65,8 @@ function unreveal(evt) {
 	}
 }
 
+// function to add the event listener to the list items
+
 function play() {
 	const card = document.querySelectorAll('.card');
 	for(let i = 0; i < card.length; i++) {
@@ -71,22 +74,28 @@ function play() {
 	}
 }
 
-play();
+// function to compare revealed cards
 
 function check() {
 	const checkOpenedCards = document.querySelectorAll('.open');
 	if(checkOpenedCards[0].innerHTML === checkOpenedCards[1].innerHTML) {
 		for(let i = 0; i < checkOpenedCards.length; i++) {
-			checkOpenedCards[i].removeEventListener('click', unreveal);
-			checkOpenedCards[i].classList.remove('card', 'open');
-			checkOpenedCards[i].classList.add('matched');
+				checkOpenedCards[i].removeEventListener('click', unreveal);
+			setTimeout(function() {
+				checkOpenedCards[i].classList.remove('card', 'open');
+				checkOpenedCards[i].classList.add('matched');
+			}, 1000);
 		}
 	totalMatches++;
 	}
 	else if(checkOpenedCards[0].innerHTML !== checkOpenedCards[1].innerHTML) {
 		for(let i = 0; i < checkOpenedCards.length; i++) {
+			setTimeout(function() {
 			checkOpenedCards[i].classList.remove('open');
+			}, 1000);
 		}
 	}
 	revealCount = 0;
 }
+
+play();

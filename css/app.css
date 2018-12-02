@@ -59,6 +59,7 @@ body {
 .open {
 	transition: 1s ease;
 	transform: rotateY(180deg);
+	cursor: auto;
 }
 
 .fa-card {
