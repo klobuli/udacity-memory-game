@@ -86,6 +86,9 @@ function check() {
 			}, 1000);
 		}
 	totalMatches++;
+	if(totalMatches === 8) {
+		won();
+	}
 	}
 	else if(checkOpenedCards[0].innerHTML !== checkOpenedCards[1].innerHTML) {
 		for(let i = 0; i < checkOpenedCards.length; i++) {
@@ -96,6 +99,19 @@ function check() {
 		}
 	}
 	revealCount = 0;
+}
+
+// congratulations function
+
+function won() {
+	setTimeout(function() {
+		const grats = document.querySelector('.congratulations');
+		grats.classList.add('in');
+		const gratsHeading = document.createElement('h2');
+		gratsHeading.classList.add('congratulations-heading');
+		gratsHeading.innerHTML = 'Congratulations,<br>you won!';
+		grats.appendChild(gratsHeading);
+	}, 1000);
 }
 
 play();
