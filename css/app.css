@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:700|Fredoka+One');
+
 html {
 	box-sizing: border-box;
 	font-size: calc(100% + .1vw);
@@ -50,10 +52,20 @@ body {
 	transition: .5s ease;
 }
 
+@keyframes ruettel {
+    20% {transform: rotate(10deg);;}
+    40% {transform: rotate(-10deg);}
+		60% {transform: rotate(10deg);}
+		80% {transform: rotate(-10deg);}
+		100% {transform: rotate(10deg);}
+}
+
 .matched {
 	transition: 0s;
 	background: linear-gradient(to bottom, #3F3047, #553c5b);
 	cursor: auto;
+	animation-name: ruettel;
+	animation-duration: .2s;
 }
 
 .open {
@@ -92,14 +104,25 @@ body {
 
 .rating-restart {
 	width: 96%;
+	max-width: 760px;
 	display: flex;
-	justify-content: space-around;
-	margin: 0 0 1rem;
+	justify-content: space-between;
+	text-align: center;
+	margin: 0 auto 1rem;
 	font: 700 1rem/normal 'Cabin', sans-serif;
 	color: #363732;
 }
 
+.moves {
+	width: 33.33%;
+}
+
+.stars {
+	width: 33.33%;
+}
+
 .restart {
+	width: 33.33%;
 	cursor: pointer;
 }
 
@@ -153,14 +176,6 @@ body {
 	font: 700 1.2rem/normal 'Cabin', sans-serif;
 	}
 
-	.moves {
-		margin-left: 7%;
-	}
-
-	.restart {
-		margin-right: 7%;
-	}
-
 }
 
 @media screen and (min-width: 46.25em) {
@@ -175,16 +190,12 @@ body {
 		max-height: 160px;
 	}
 
-	.moves {
-		margin-left: 9%;
-	}
-
-	.restart {
-		margin-right: 9%;
-	}
-
 	.fa-card {
 		font-size: 2.2rem;
+	}
+
+	.rating-restart {
+		width: 88%;
 	}
 
 }
@@ -201,14 +212,6 @@ body {
 		max-height: 165px;
 	}
 
-	.moves {
-		margin-left: 11%;
-	}
-
-	.restart {
-		margin-right: 11%;
-	}
-
 }
 
 @media screen and (min-width: 64em) {
@@ -223,20 +226,8 @@ body {
 	}
 
 	.rating-restart {
-		max-width: 760px;
+		width: 71%;
 		margin: 0 auto 1rem;
-	}
-
-	.moves {
-		margin-left: 5%;
-	}
-
-	.stars {
-		margin-right: 6%;
-	}
-
-	.restart {
-		margin-right: 5%;
 	}
 
 }

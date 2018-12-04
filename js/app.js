@@ -19,6 +19,7 @@ let cardsArray = [dogOne, dogTwo, catOne, catTwo, birdOne, birdTwo, hippoOne, hi
 // variables to track status of the game
 
 let revealCount = 0;
+let totalMoves = 0;
 let totalMatches = 0;
 
 // shuffle function
@@ -96,6 +97,8 @@ function check() {
 			}, 1000);
 		}
 	}
+	totalMoves++;
+	movesCount();
 	revealCount = 0;
 }
 
@@ -118,6 +121,8 @@ function won() {
 function restart() {
  	const restartGame = document.querySelector('.restart');
  	restartGame.addEventListener('click', function() {
+	totalMoves = 0;
+	movesCount();
 	const animation = document.createElement('div');
 	animation.classList.add('restart-animation');
 	document.body.appendChild(animation);
@@ -134,5 +139,18 @@ function restart() {
  });
 }
 
+// moves counter function
+
+function movesCount() {
+	const moves = document.querySelector('.moves');
+	if(totalMoves === 1) {
+	moves.textContent = `${totalMoves} move`;
+	}
+	else {
+	moves.textContent = `${totalMoves} moves`;
+	}
+}
+
 createGrid();
 restart();
+movesCount();
