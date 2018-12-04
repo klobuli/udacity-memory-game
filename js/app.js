@@ -14,13 +14,17 @@ const otterOne = '<i class="fas fa-otter fa-card"></i>';
 const otterTwo = '<i class="fas fa-otter fa-card"></i>';
 const spiderOne = '<i class="fas fa-spider fa-card"></i>';
 const spiderTwo = '<i class="fas fa-spider fa-card"></i>';
-
 let cardsArray = [dogOne, dogTwo, catOne, catTwo, birdOne, birdTwo, hippoOne, hippoTwo, frogOne, frogTwo, horseOne, horseTwo, otterOne, otterTwo, spiderOne, spiderTwo];
-let shuffledCardsArray = [];
+
+// variables to track status of the game
+
+let revealCount = 0;
+let totalMatches = 0;
 
 // shuffle function
 
 function shuffle(arrayToShuffle) {
+	let shuffledCardsArray = [];
 	let randomNumbersUsed = [];
 	for (let i = 0; i < arrayToShuffle.length; i++) {
 		const randomNumber = Math.floor(Math.random()*arrayToShuffle.length);
@@ -39,23 +43,17 @@ function shuffle(arrayToShuffle) {
 
 function createGrid() {
 	const random = shuffle(cardsArray);
-	const unorderedList = document.querySelector('#card-grid');
+	const unorderedList = document.querySelector('.card-grid');
 	for(let i = 0; i < random.length; i++) {
 		const listItem = document.createElement('li');
 		listItem.classList.add('card');
 		listItem.innerHTML = random[i];
 		unorderedList.appendChild(listItem);
+		play();
 	}
 }
 
-createGrid();
-
-// variables to track status of the game
-
-let revealCount = 0;
-let totalMatches = 0;
-
-// event listener function
+// event listener to unreveal cards
 
 function unreveal(evt) {
 	evt.currentTarget.classList.add('open');
@@ -105,13 +103,36 @@ function check() {
 
 function won() {
 	setTimeout(function() {
-		const grats = document.querySelector('.congratulations');
-		grats.classList.add('in');
+		const grats = document.createElement('div');
+		grats.classList.add('congratulations');
+		document.body.appendChild(grats);
 		const gratsHeading = document.createElement('h2');
 		gratsHeading.classList.add('congratulations-heading');
 		gratsHeading.innerHTML = 'Congratulations,<br>you won!';
 		grats.appendChild(gratsHeading);
-	}, 1000);
+	}, 2000);
 }
 
-play();
+// restart button function
+
+function restart() {
+ 	const restartGame = document.querySelector('.restart');
+ 	restartGame.addEventListener('click', function() {
+	const animation = document.createElement('div');
+	animation.classList.add('restart-animation');
+	document.body.appendChild(animation);
+	setTimeout(function() {
+		animation.remove();
+	}, 500);
+	const unorderedList = document.querySelector('.card-grid');
+	unorderedList.remove();
+	const newGrid = document.createElement('ul');
+	newGrid.classList.add('card-grid');
+	const main = document.querySelector('main');
+	main.appendChild(newGrid);
+	createGrid();
+ });
+}
+
+createGrid();
+restart();
