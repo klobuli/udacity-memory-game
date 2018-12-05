@@ -11,6 +11,7 @@ html {
 
 body {
 	margin: 0;
+	background-image: url('../img/geometry.png');
 }
 
 /* mobile first */
@@ -52,7 +53,7 @@ body {
 	transition: .5s ease;
 }
 
-@keyframes ruettel {
+@keyframes shake {
     20% {transform: rotate(10deg);;}
     40% {transform: rotate(-10deg);}
 		60% {transform: rotate(10deg);}
@@ -64,7 +65,7 @@ body {
 	transition: 0s;
 	background: linear-gradient(to bottom, #3F3047, #553c5b);
 	cursor: auto;
-	animation-name: ruettel;
+	animation-name: shake;
 	animation-duration: .2s;
 }
 
@@ -123,6 +124,9 @@ body {
 
 .restart {
 	width: 33.33%;
+}
+
+.fa-redo-alt {
 	cursor: pointer;
 }
 
@@ -141,23 +145,50 @@ body {
 	animation-duration: .5s;
 }
 
+@keyframes congrats {
+	0% { height: 0vh; }
+	100% { height: 100vh; }
+}
+
 .congratulations {
+	animation-name: congrats;
+	animation-duration: .5s;
+	animation-fill-mode: forwards;
 	width: 100%;
-	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: absolute;
 	padding: .8rem;
 	top: 0;
 	left: 0;
 	background: linear-gradient(to bottom, #3d91c7, #3fa6cc);
-	border-radius: 1rem;
-	transition: 2s ease;
+}
+
+@keyframes congrats-heading {
+	0% {	color: rgba(255, 255, 255, 0); margin-bottom: 2rem; }
+	100% { color: rgba(255, 255, 255, 1); margin-bottom: 0rem; }
 }
 
 .congratulations-heading {
+	animation-name: congrats-heading;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
 	margin: .5rem 0;
 	font: 400 1.7rem/normal 'Fredoka One', cursive;
-	color: #fff;
 	text-align: center;
+}
+
+.congratulations-moves {
+
+}
+
+.congratulations-rating {
+
+}
+
+.congratulations-play-again {
+
 }
 
 /* media queries */

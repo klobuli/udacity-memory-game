@@ -20,6 +20,7 @@ let cardsArray = [dogOne, dogTwo, catOne, catTwo, birdOne, birdTwo, hippoOne, hi
 
 let revealCount = 0;
 let totalMoves = 0;
+let failedMoves = 0;
 let totalMatches = 0;
 
 // shuffle function
@@ -96,9 +97,11 @@ function check() {
 			checkOpenedCards[i].classList.remove('open');
 			}, 1000);
 		}
+		failedMoves++;
 	}
 	totalMoves++;
 	movesCount();
+	starRating();
 	revealCount = 0;
 }
 
@@ -109,20 +112,28 @@ function won() {
 		const grats = document.createElement('div');
 		grats.classList.add('congratulations');
 		document.body.appendChild(grats);
-		const gratsHeading = document.createElement('h2');
-		gratsHeading.classList.add('congratulations-heading');
-		gratsHeading.innerHTML = 'Congratulations,<br>you won!';
-		grats.appendChild(gratsHeading);
+		setTimeout(function() {
+			const gratsTextContainer = document.createElement('div');
+			grats.appendChild(gratsTextContainer);
+			const gratsHeading = document.createElement('h2');
+			gratsHeading.classList.add('congratulations-heading');
+			gratsHeading.innerHTML = 'Congratulations,<br>you made it!';
+			gratsTextContainer.appendChild(gratsHeading);
+		}, 500);
 	}, 2000);
 }
 
-// restart button function
+// restart function
 
 function restart() {
- 	const restartGame = document.querySelector('.restart');
+ 	const restartGame = document.querySelector('.fa-redo-alt');
  	restartGame.addEventListener('click', function() {
 	totalMoves = 0;
 	movesCount();
+	failedMoves = 0;
+	starRating();
+	totalMatches = 0;
+	revealCount = 0;
 	const animation = document.createElement('div');
 	animation.classList.add('restart-animation');
 	document.body.appendChild(animation);
@@ -151,6 +162,29 @@ function movesCount() {
 	}
 }
 
+// star rating function
+
+function starRating() {
+	const starsContainer = document.querySelector('.stars');
+		if(failedMoves <= 5) {
+		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
+		}
+		else if(failedMoves > 5 && failedMoves <= 8) {
+		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star star-unfilled"></i>';
+		}
+		else if(failedMoves > 8 && failedMoves <= 11) {
+		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+		}
+		else if(failedMoves > 11 && failedMoves <= 14) {
+		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+		}
+		else if(failedMoves > 14) {
+		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="far fa-star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+		}
+}
+
+
 createGrid();
 restart();
 movesCount();
+starRating();
