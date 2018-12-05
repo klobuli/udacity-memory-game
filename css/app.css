@@ -63,7 +63,7 @@ body {
 
 .matched {
 	transition: 0s;
-	background: linear-gradient(to bottom, #3F3047, #553c5b);
+	background: linear-gradient(to bottom, #3F3047, #603960);
 	cursor: auto;
 	animation-name: shake;
 	animation-duration: .2s;
@@ -130,7 +130,7 @@ body {
 	cursor: pointer;
 }
 
-@keyframes example {
+@keyframes reset {
     from {background: rgba(255, 255 ,255 ,1);}
     to {background: rgba(255, 255 ,255 ,0);}
 }
@@ -141,7 +141,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100vh;
-	animation-name: example;
+	animation-name: reset;
 	animation-duration: .5s;
 }
 
@@ -165,30 +165,43 @@ body {
 	background: linear-gradient(to bottom, #3d91c7, #3fa6cc);
 }
 
-@keyframes congrats-heading {
+@keyframes congrats-text {
 	0% {	color: rgba(255, 255, 255, 0); margin-bottom: 2rem; }
 	100% { color: rgba(255, 255, 255, 1); margin-bottom: 0rem; }
 }
 
-.congratulations-heading {
-	animation-name: congrats-heading;
+.congrats-text-container {
+	animation-name: congrats-text;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
-	margin: .5rem 0;
-	font: 400 1.7rem/normal 'Fredoka One', cursive;
 	text-align: center;
 }
 
-.congratulations-moves {
-
+.congratulations-heading {
+	margin: .5rem 0;
+	font: 400 2rem/140% 'Fredoka One', cursive;
+	text-align: center;
 }
 
-.congratulations-rating {
-
+.your-results {
+	font: 700 1.2rem/155% 'Cabin', sans-serif;
+	color: #fff;
 }
 
-.congratulations-play-again {
+.play-again:link, .play-again:visited {
+	display: inline-block;
+	margin: 1rem 0;
+	padding: .3rem 1.5rem;
+	border: 3px solid #fff;
+	border-radius: .5rem;
+	font: 700 1.2rem/155% 'Cabin', sans-serif;
+	color: #fff;
+	text-decoration: none;
+	transition: 300ms ease;
+}
 
+.play-again:hover, .play-again:active, .play-again:focus {
+	background: rgba(255, 255, 255, 0.3);
 }
 
 /* media queries */
@@ -205,6 +218,18 @@ body {
 
 	.rating-restart {
 	font: 700 1.2rem/normal 'Cabin', sans-serif;
+	}
+
+	.congratulations-heading {
+		font: 400 2.1rem/140% 'Fredoka One', cursive;
+	}
+
+	.your-results {
+		font: 700 1.3rem/155% 'Cabin', sans-serif;
+	}
+
+	.play-again:link, .play-again:visited {
+		font: 700 1.3rem/155% 'Cabin', sans-serif;
 	}
 
 }
@@ -229,6 +254,10 @@ body {
 		width: 88%;
 	}
 
+	.congratulations-heading {
+		font: 400 2.2rem/140% 'Fredoka One', cursive;
+	}
+
 }
 
 @media screen and (min-width: 55em) {
@@ -242,6 +271,19 @@ body {
 		height: 17.5vw;
 		max-height: 165px;
 	}
+
+	.congratulations-heading {
+		font: 400 2.3rem/140% 'Fredoka One', cursive;
+	}
+
+	.your-results {
+		font: 700 1.4rem/155% 'Cabin', sans-serif;
+	}
+
+	.play-again:link, .play-again:visited {
+		font: 700 1.4rem/155% 'Cabin', sans-serif;
+	}
+
 
 }
 
@@ -259,6 +301,10 @@ body {
 	.rating-restart {
 		width: 71%;
 		margin: 0 auto 1rem;
+	}
+
+	.congratulations-heading {
+		font: 400 2.4rem/140% 'Fredoka One', cursive;
 	}
 
 }

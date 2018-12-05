@@ -114,11 +114,27 @@ function won() {
 		document.body.appendChild(grats);
 		setTimeout(function() {
 			const gratsTextContainer = document.createElement('div');
+			gratsTextContainer.classList.add('congrats-text-container');
 			grats.appendChild(gratsTextContainer);
 			const gratsHeading = document.createElement('h2');
 			gratsHeading.classList.add('congratulations-heading');
 			gratsHeading.innerHTML = 'Congratulations,<br>you made it!';
 			gratsTextContainer.appendChild(gratsHeading);
+			const finalRating = document.querySelector('.stars').innerHTML;
+			const finalResults = document.createElement('p');
+			finalResults.classList.add('your-results');
+			finalResults.innerHTML = `Moves: ${totalMoves}<br>Time:<br>Rating: ${finalRating}<br>`;
+			gratsTextContainer.appendChild(finalResults);
+			const playAgain = document.createElement('a');
+			playAgain.setAttribute('href', '#');
+			playAgain.classList.add('play-again');
+			playAgain.textContent = 'Play again';
+			gratsTextContainer.appendChild(playAgain);
+			playAgain.addEventListener('click', function(evt) {
+				evt.preventDefault();
+				grats.remove();
+				restart();
+			});
 		}, 500);
 	}, 2000);
 }
