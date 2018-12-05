@@ -85,16 +85,16 @@ function check() {
 				checkOpenedCards[i].classList.add('matched');
 			}, 1000);
 		}
-	totalMatches++;
-	if(totalMatches === 8) {
-		won();
-	}
+		totalMatches++;
+		if(totalMatches === 8) {
+			won();
+		}
 	}
 	else if(checkOpenedCards[0].innerHTML !== checkOpenedCards[1].innerHTML) {
 		for(let i = 0; i < checkOpenedCards.length; i++) {
 			setTimeout(function() {
-			checkOpenedCards[i].addEventListener('click', unreveal, { once: true });
-			checkOpenedCards[i].classList.remove('open');
+				checkOpenedCards[i].addEventListener('click', unreveal, { once: true });
+				checkOpenedCards[i].classList.remove('open');
 			}, 1000);
 		}
 		failedMoves++;
@@ -133,17 +133,15 @@ function won() {
 			playAgain.addEventListener('click', function(evt) {
 				evt.preventDefault();
 				grats.remove();
-				restart();
 			});
+			playAgain.addEventListener('click', restartListener);
 		}, 500);
 	}, 2000);
 }
 
-// restart function
+// restart event listener function
 
-function restart() {
- 	const restartGame = document.querySelector('.fa-redo-alt');
- 	restartGame.addEventListener('click', function() {
+function restartListener(evt) {
 	totalMoves = 0;
 	movesCount();
 	failedMoves = 0;
@@ -163,7 +161,13 @@ function restart() {
 	const main = document.querySelector('main');
 	main.appendChild(newGrid);
 	createGrid();
- });
+}
+
+// restart function
+
+function restart() {
+	const restartGame = document.querySelector('.fa-redo-alt');
+	restartGame.addEventListener('click', restartListener);
 }
 
 // moves counter function
@@ -171,10 +175,10 @@ function restart() {
 function movesCount() {
 	const moves = document.querySelector('.moves');
 	if(totalMoves === 1) {
-	moves.textContent = `${totalMoves} move`;
+		moves.textContent = `${totalMoves} move`;
 	}
 	else {
-	moves.textContent = `${totalMoves} moves`;
+		moves.textContent = `${totalMoves} moves`;
 	}
 }
 
@@ -182,21 +186,25 @@ function movesCount() {
 
 function starRating() {
 	const starsContainer = document.querySelector('.stars');
-		if(failedMoves <= 5) {
+	if(failedMoves <= 5) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
-		}
-		else if(failedMoves > 5 && failedMoves <= 8) {
+	}
+	else if(failedMoves > 5 && failedMoves <= 8) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star star-unfilled"></i>';
-		}
-		else if(failedMoves > 8 && failedMoves <= 11) {
+	}
+	else if(failedMoves > 8 && failedMoves <= 11) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
-		}
-		else if(failedMoves > 11 && failedMoves <= 14) {
+	}
+	else if(failedMoves > 11 && failedMoves <= 14) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
-		}
-		else if(failedMoves > 14) {
+	}
+	else if(failedMoves > 14) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="far fa-star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
-		}
+	}
+}
+
+function timer() {
+
 }
 
 
