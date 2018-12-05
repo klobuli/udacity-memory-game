@@ -21,7 +21,7 @@ body {
 }
 
 .page-heading {
-	margin: 1rem 0;
+	margin: 1rem 0 .5rem;
 	text-align: center;
 	font: 400 2rem/normal 'Fredoka One', cursive;
 	color: #363732;
@@ -101,6 +101,13 @@ body {
 
 .card-grid li:nth-last-child(-n+4) {
 	margin-bottom: 0;
+}
+
+.timer {
+	margin: 0 0 .5rem;
+	font: 700 1rem/normal 'Cabin', sans-serif;
+	text-align: center;
+	color: #363732;
 }
 
 .rating-restart {
@@ -218,6 +225,10 @@ body {
 
 	.rating-restart {
 	font: 700 1.2rem/normal 'Cabin', sans-serif;
+	}
+
+	.timer {
+		font: 700 1.2rem/normal 'Cabin', sans-serif;
 	}
 
 	.congratulations-heading {

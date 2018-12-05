@@ -121,12 +121,13 @@ function won() {
 			gratsHeading.innerHTML = 'Congratulations,<br>you made it!';
 			gratsTextContainer.appendChild(gratsHeading);
 			const finalRating = document.querySelector('.stars').innerHTML;
+			const finalTime = document.querySelector('.timer').innerHTML;
 			const finalResults = document.createElement('p');
 			finalResults.classList.add('your-results');
-			finalResults.innerHTML = `Moves: ${totalMoves}<br>Time:<br>Rating: ${finalRating}<br>`;
+			finalResults.innerHTML = `Moves: ${totalMoves}<br>Time: ${finalTime}<br>Rating: ${finalRating}<br>`;
 			gratsTextContainer.appendChild(finalResults);
 			const playAgain = document.createElement('a');
-			playAgain.setAttribute('href', '#');
+			playAgain.setAttribute('href', '');
 			playAgain.classList.add('play-again');
 			playAgain.textContent = 'Play again';
 			gratsTextContainer.appendChild(playAgain);
@@ -203,8 +204,34 @@ function starRating() {
 	}
 }
 
-function timer() {
+// timer function
 
+function timer() {
+	const time = document.querySelector('.timer');
+	let minutesOne = 0;
+	let minutesTwo = 0;
+	let secondsOne = 0;
+	let secondsTwo = 0;
+	time.textContent = `${minutesOne}${minutesTwo}:${secondsOne}${secondsTwo}`;
+	setInterval(function() {
+		secondsTwo++;
+		if(secondsTwo === 10) {
+			secondsTwo = 0;
+			secondsOne++;
+		}
+		if(secondsOne === 6) {
+			secondsOne = 0;
+			minutesTwo++;
+		}
+		if(minutesTwo === 10) {
+			minutesTwo = 0;
+			minutesOne++;
+		}
+		time.textContent = `${minutesOne}${minutesTwo}:${secondsOne}${secondsTwo}`;
+		if(minutesOne >= 6) {
+			time.textContent = "I can't believe you need more than one hour for this!";
+		}
+	}, 1000);
 }
 
 
@@ -212,3 +239,4 @@ createGrid();
 restart();
 movesCount();
 starRating();
+timer(); //move later
