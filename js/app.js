@@ -60,6 +60,9 @@ function createGrid() {
 function unreveal(evt) {
 	evt.currentTarget.classList.add('open');
 	revealCount++;
+	if(document.querySelector('.timer').textContent === '00:00' && revealCount === 1) {
+		timer();
+	}
 	if(revealCount === 2) {
 		check();
 	}
@@ -149,6 +152,12 @@ function restartListener(evt) {
 	starRating();
 	totalMatches = 0;
 	revealCount = 0;
+	const timer = document.querySelector('.timer');
+	timer.remove();
+	const newTimer = document.createElement('div');
+	newTimer.classList.add('timer');
+	newTimer.textContent = '00:00';
+	document.querySelector('.page-heading').insertAdjacentElement('afterend', newTimer);
 	const animation = document.createElement('div');
 	animation.classList.add('restart-animation');
 	document.body.appendChild(animation);
@@ -208,27 +217,30 @@ function starRating() {
 
 function timer() {
 	const time = document.querySelector('.timer');
-	let minutesOne = 0;
-	let minutesTwo = 0;
-	let secondsOne = 0;
-	let secondsTwo = 0;
-	time.textContent = `${minutesOne}${minutesTwo}:${secondsOne}${secondsTwo}`;
-	setInterval(function() {
-		secondsTwo++;
-		if(secondsTwo === 10) {
-			secondsTwo = 0;
-			secondsOne++;
+	let m1 = 0;
+	let m2 = 0;
+	let s1 = 0;
+	let s2 = 0;
+	let count = setInterval(function() {
+		if(totalMatches === 8) {
+			clearInterval(count);
 		}
-		if(secondsOne === 6) {
-			secondsOne = 0;
-			minutesTwo++;
+		s2++;
+		if(s2 === 10) {
+			s2 = 0;
+			s1++;
 		}
-		if(minutesTwo === 10) {
-			minutesTwo = 0;
-			minutesOne++;
+		if(s1 === 6) {
+			s1 = 0;
+			m2++;
 		}
-		time.textContent = `${minutesOne}${minutesTwo}:${secondsOne}${secondsTwo}`;
-		if(minutesOne >= 6) {
+		if(m2 === 10) {
+			m2 = 0;
+			m1++;
+		}
+		time.textContent = `${m1}${m2}:${s1}${s2}`;
+		if(m1 >= 6) {
+			clearInterval(count);
 			time.textContent = "I can't believe you need more than one hour for this!";
 		}
 	}, 1000);
@@ -239,4 +251,3 @@ createGrid();
 restart();
 movesCount();
 starRating();
-timer(); //move later
