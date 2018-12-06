@@ -212,7 +212,7 @@ function starRating() {
 	else if(failedMoves > 10 && failedMoves <= 13) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
 	}
-	else if(failedMoves > 14) {
+	else if(failedMoves > 13) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="far fa-star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
 	}
 }
