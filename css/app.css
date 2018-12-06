@@ -78,7 +78,7 @@ body {
 .fa-card {
 	font-size: 1.8rem;
 	color: #fff;
-	opacity: 0.1;
+	opacity: 0;
 	transition: opacity 0s ease;
 	transition-delay: 0s;
 }
