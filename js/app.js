@@ -80,12 +80,15 @@ function play() {
 // function to compare revealed cards
 
 function check() {
+	const dontClick = document.querySelector('.card-grid');
+	dontClick.style.pointerEvents = 'none';
 	const checkOpenedCards = document.querySelectorAll('.open');
 	if(checkOpenedCards[0].innerHTML === checkOpenedCards[1].innerHTML) {
 		for(let i = 0; i < checkOpenedCards.length; i++) {
 			setTimeout(function() {
 				checkOpenedCards[i].classList.remove('card', 'open');
 				checkOpenedCards[i].classList.add('matched');
+				dontClick.style.pointerEvents = 'auto';
 			}, 1000);
 		}
 		totalMatches++;
@@ -98,6 +101,7 @@ function check() {
 			setTimeout(function() {
 				checkOpenedCards[i].addEventListener('click', unreveal, { once: true });
 				checkOpenedCards[i].classList.remove('open');
+				dontClick.style.pointerEvents = 'auto';
 			}, 1000);
 		}
 		failedMoves++;
