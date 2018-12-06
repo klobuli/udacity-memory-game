@@ -200,16 +200,16 @@ function movesCount() {
 
 function starRating() {
 	const starsContainer = document.querySelector('.stars');
-	if(failedMoves <= 5) {
+	if(failedMoves <= 4) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
 	}
-	else if(failedMoves > 5 && failedMoves <= 8) {
+	else if(failedMoves > 4 && failedMoves <= 7) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star star-unfilled"></i>';
 	}
-	else if(failedMoves > 8 && failedMoves <= 11) {
+	else if(failedMoves > 7 && failedMoves <= 10) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
 	}
-	else if(failedMoves > 11 && failedMoves <= 14) {
+	else if(failedMoves > 10 && failedMoves <= 13) {
 		starsContainer.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
 	}
 	else if(failedMoves > 14) {
